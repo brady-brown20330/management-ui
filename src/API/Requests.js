@@ -6,3 +6,11 @@ const Stack = contentstack.Stack({
   environment: process.env.REACT_APP_ENVIRONMENT,
   region: process.env.REACT_APP_REGION ? process.env.REACT_APP_REGION : "us",
 })
+
+// create an entry 
+
+// publish an entry
+
+// add an asset
+
+// export all functions
