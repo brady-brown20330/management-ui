@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import contentstackClient from '../API/Requests'
 
 export const ManagementForm = () => {
   const [title, setTitle] = useState(undefined)
@@ -24,10 +25,27 @@ export const ManagementForm = () => {
     setProjectLink(e.target.value)
   };
 
-  const handleSubmit = (event) => {
-    alert(`here is what were sending: ${title}, ${projectTitle}, ${projectLink}`)
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    // alert(`here is what were sending: ${title}, ${projectTitle}, ${projectLink}`)
+    let entry = {
+        "title": "Star Wars II",
+            "tile_image": "blt8a1c281b279ca2da",
+        "project_link": {
+                "title":"Star Wars II",
+                "href": "https://www.starwars.com/"
+            }
+    }
+      loginToContentstack.then(
+        contentstackClient.createEntry(entry)
+      )
+      
+    
+    
+
   }
+
+  const loginToContentstack = new Promise((resolve, reject) => { contentstackClient.login() })
 
   return (
     <form className="project-form" onSubmit={handleSubmit}>
